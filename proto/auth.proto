@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "lucperkins/auth";
+
+message User {
+  string username = 1;
+  string password = 2;
+}

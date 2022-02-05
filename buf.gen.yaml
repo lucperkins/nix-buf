@@ -1,0 +1,5 @@
+version: v1
+plugins:
+  - remote: buf.build/grpc/plugins/go:v1.2.0-1
+    out: gen/proto/go
+    opt: paths=source_relative
