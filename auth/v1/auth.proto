@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package auth.v1;
+
+option go_package = "github.com/lucperkins/auth";
+
+message User {
+  string username = 1;
+  map<string, string> characteristics = 2;
+}
+
+message AuthRequest {
+  string password = 1;
+}
+
+message AuthResponse {
+  User user = 1;
+}
+
+service AuthService {
+  rpc Auth (AuthRequest) returns (AuthResponse) {}
+}
