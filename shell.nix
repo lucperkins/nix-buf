@@ -1,11 +1,8 @@
-{ pkgs }:
-
-pkgs.mkShell {
-  buildInputs = with pkgs; [
-    buf
-  ];
-
-  shellHook = ''
-    echo "Welcome to your pure Buf workspace, $USER!"
-  '';
-}
+let
+  pkgs = (import ./default.nix).pkgs;
+  shared = import ./shared.nix { inherit pkgs; };
+  shell = pkgs.mkShell {
+    buildInputs = shared.buildInputs;
+    shellHook = shared.shellHook;
+  };
+in shell

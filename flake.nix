@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/7f7af7c7796f9d2f523686293de3cf2f149d9aa2";
+      url = "github:NixOS/nixpkgs/7f7af7c7796f9d2f523686293de3cf2f149d9aa2"; # Matches
     };
 
     flake-utils = {
@@ -16,18 +16,23 @@
       (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          bufApp = {
-            type = "app";
-            program = "${pkgs.buf}/bin/buf";
-          };
+
+          shared = import ./shared.nix { inherit pkgs; };
         in rec {
           apps = {
-            buf = bufApp;
+            buf = {
+              type = "app";
+              program = "${pkgs.buf}/bin/buf";
+            };
           };
 
-          defaultApp = bufApp;
+          defaultApp = apps.buf;
 
-          devShell = import ./shell.nix { inherit pkgs; };
+          devShell = pkgs.mkShell {
+            buildInputs = shared.buildInputs;
+
+            shellHook = shared.shellHook;
+          };
         }
       );
 }

@@ -1,13 +1,21 @@
-NIX   = nix
+NIX   = nix-shell --pure --run
 FLAKE = $(NIX) run . --
+
+build:
+	$(NIX) "buf build"
+
+generate:
+	$(NIX) "buf generate"
+
+lint:
+	$(NIX) "buf lint"
 
 flake-build:
 	$(FLAKE) build
 
-.PHONY: generate
 flake-generate:
 	$(FLAKE) generate
 
-.PHONY: lint
 flake-lint:
 	$(FLAKE) lint
+

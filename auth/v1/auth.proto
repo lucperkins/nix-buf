@@ -2,11 +2,12 @@ syntax = "proto3";
 
 package auth.v1;
 
-option go_package = "github.com/lucperkins/auth";
+option go_package = "github.com/lucperkins/auth/v1";
 
 message User {
   string username = 1;
-  map<string, string> characteristics = 2;
+  bool is_admin = 2;
+  map<string, string> characteristics = 3;
 }
 
 message AuthRequest {
