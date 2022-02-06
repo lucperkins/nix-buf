@@ -26,7 +26,7 @@ buf build
 To run Buf commands using the "old" Nix way, preface them with `nix-shell --pure --run`. Some examples:
 
 ```sh
-nix-shell --pure --run buf build
+nix-shell --pure --run "buf build"
 nix-shell --pure --run "buf generate"
 nix-shell --pure --run "buf lint"
 # etc.
