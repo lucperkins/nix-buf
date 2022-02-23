@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package auth.v1;
 
-option go_package = "github.com/lucperkins/auth/v1";
-
 message User {
   string username = 1;
   bool is_admin = 2;

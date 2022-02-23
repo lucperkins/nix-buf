@@ -1,6 +1,6 @@
 # Buf + Nix
 
-An example [Buf] development environment using [Nix].
+An example [Buf] workspace that uses [Nix].
 
 * The [Flakes] configuration is in [`flake.nix`](./flake.nix)
 * The non-Flakes configuration is in [`default.nix`](./default.nix), with the non-Flakes shell config in [`shell.nix`](./shell.nix)

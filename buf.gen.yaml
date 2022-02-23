@@ -1,4 +1,8 @@
 version: v1
+managed:
+  enabled: true
+  go_package_prefix:
+    default: github.com/lucperkins/buf-nix
 plugins:
   - remote: buf.build/protocolbuffers/plugins/go:v1.27.1-1
     out: gen/proto/go
