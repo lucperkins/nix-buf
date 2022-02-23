@@ -17,7 +17,7 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
 
-          shared = import ./shared.nix { inherit pkgs; };
+          shared = import ./nix/shared.nix { inherit pkgs; };
         in rec {
           apps = {
             buf = {
