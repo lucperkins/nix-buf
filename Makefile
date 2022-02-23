@@ -1,5 +1,5 @@
 NIX   = nix-shell --pure --run
-FLAKE = $(NIX) run . --
+FLAKE = nix run . --
 
 build:
 	$(NIX) "buf build"

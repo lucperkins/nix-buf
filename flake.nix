@@ -3,11 +3,11 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/7f7af7c7796f9d2f523686293de3cf2f149d9aa2"; # Matches
+      url = "github:NixOS/nixpkgs";
     };
 
     flake-utils = {
-      url = "github:numtide/flake-utils/846b2ae0fc4cc943637d3d1def4454213e203cba";
+      url = "github:numtide/flake-utils";
     };
   };
 
