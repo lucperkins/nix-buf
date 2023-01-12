@@ -15,23 +15,18 @@
     flake-utils.lib.eachDefaultSystem
       (system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
-
-          shared = import ./nix/shared.nix { inherit pkgs; };
-        in rec {
-          apps = {
-            buf = {
-              type = "app";
-              program = "${pkgs.buf}/bin/buf";
-            };
+          pkgs = import nixpkgs {
+            inherit system;
+          };
+        in
+        {
+          apps.default = {
+            type = "app";
+            program = "${pkgs.buf}/bin/buf";
           };
 
-          defaultApp = apps.buf;
-
-          devShell = pkgs.mkShell {
-            buildInputs = shared.buildInputs;
-
-            shellHook = shared.shellHook;
+          devShells.default = pkgs.mkShell {
+            packages = with pkgs; [ buf ];
           };
         }
       );
