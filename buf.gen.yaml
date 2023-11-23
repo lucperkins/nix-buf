@@ -4,9 +4,9 @@ managed:
   go_package_prefix:
     default: github.com/lucperkins/buf-nix
 plugins:
-  - remote: buf.build/protocolbuffers/plugins/go:v1.27.1-1
+  - plugin: buf.build/protocolbuffers/go:v1.31.0
     out: gen/proto/go
     opt: paths=source_relative
-  - remote: buf.build/grpc/plugins/go:v1.2.0-1
+  - plugin: buf.build/grpc/go:v1.3.0
     out: gen/proto/go
     opt: paths=source_relative

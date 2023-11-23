@@ -17,5 +17,5 @@ message AuthResponse {
 }
 
 service AuthService {
-  rpc Auth (AuthRequest) returns (AuthResponse) {}
+  rpc Auth(AuthRequest) returns (AuthResponse) {}
 }

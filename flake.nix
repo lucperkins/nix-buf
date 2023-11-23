@@ -3,11 +3,11 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs";
+      url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*.tar.gz";
     };
 
     flake-utils = {
-      url = "github:numtide/flake-utils";
+      url = "https://flakehub.com/f/numtide/flake-utils/0.1.87.tar.gz";
     };
   };
 
